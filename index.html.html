@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Media Pembelajaran Lembaga Keuangan Bank dan Non Bank</title>
+<style>
+:root{--bg:#f5f8fb;--card:#fff;--tx:#1b2a3a;--mut:#5b6b7c;--pri:#0f6e8c;--pri2:#e3f2f7;--acc:#e8a317;--ok:#1f8a4c;--bad:#c0392b;--bd:#d9e2ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a24;--card:#17252f;--tx:#e7eef4;--mut:#9fb0be;--pri:#4cc1e0;--pri2:#173845;--acc:#f0b84a;--ok:#4cd08a;--bad:#ff7b6b;--bd:#2a3c49}}
+:root[data-theme="dark"]{--bg:#0f1a24;--card:#17252f;--tx:#e7eef4;--mut:#9fb0be;--pri:#4cc1e0;--pri2:#173845;--acc:#f0b84a;--ok:#4cd08a;--bad:#ff7b6b;--bd:#2a3c49}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding:16px}
+.hero{text-align:center;padding:56px 16px 40px}
+.hero .ic{font-size:56px}
+.hero h1{font-size:clamp(26px,5vw,40px);margin:8px 0;color:var(--pri)}
+.hero p{color:var(--mut);max-width:560px;margin:0 auto 24px}
+.btn{background:var(--pri);color:#fff;border:0;border-radius:999px;padding:12px 28px;font-size:16px;font-weight:600;cursor:pointer}
+:root:not([data-theme="light"]) .btn{color:#06222c}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:10px 16px;border-bottom:1px solid var(--bd)}
+nav button{flex:0 0 auto;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font-size:14px;cursor:pointer}
+nav button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+:root:not([data-theme="light"]) nav button.on{color:#06222c}
+section{display:none}section.on{display:block}
+h2{color:var(--pri);margin:8px 0 12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h3{margin:0 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.tag{display:inline-block;background:var(--pri2);color:var(--pri);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:600}
+.acc{border:1px solid var(--bd);border-radius:12px;margin-bottom:10px;background:var(--card);overflow:hidden}
+.acc>button{width:100%;text-align:left;background:none;border:0;color:var(--tx);padding:14px 16px;font-size:16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between}
+.acc>div{display:none;padding:0 16px 14px;color:var(--tx)}
+.acc.open>div{display:block}.acc.open>button span{transform:rotate(180deg)}
+ul{margin:6px 0;padding-left:20px}
+.tblw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px;background:var(--card)}
+th,td{border:1px solid var(--bd);padding:10px;text-align:left;vertical-align:top;font-size:14px}th{background:var(--pri2);color:var(--pri)}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font-size:15px;cursor:pointer}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,transparent)}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,transparent)}
+.fb{margin-top:8px;color:var(--mut);font-size:14px}
+.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden;margin-bottom:12px}.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.score{font-size:44px;font-weight:700;color:var(--pri);text-align:center}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px}
+</style>
+</head>
+<body>
+<div id="home" class="hero wrap">
+  <div class="ic">🏦</div>
+  <h1>Media Pembelajaran<br>Lembaga Keuangan</h1>
+  <p>Belajar interaktif tentang lembaga keuangan bank dan lembaga keuangan non bank: pengertian, fungsi, jenis, perbandingan, dan kuis.</p>
+  <button class="btn" onclick="start()">Mulai belajar</button>
+</div>
+
+<div id="app" style="display:none">
+<nav id="nav"></nav>
+<div class="wrap">
+
+<section id="s0" class="on">
+  <h2>Pengertian & Fungsi</h2>
+  <div class="card"><h3>Apa itu lembaga keuangan?</h3>
+    <p>Lembaga keuangan adalah badan usaha yang kegiatannya di bidang keuangan, yaitu menghimpun dana dari masyarakat dan/atau menyalurkannya kembali dalam bentuk pembiayaan atau jasa keuangan lain.</p></div>
+  <div class="grid">
+    <div class="card"><span class="tag">Fungsi 1</span><h3>Penghimpun dana</h3><p>Mengumpulkan uang masyarakat yang kelebihan dana, misalnya lewat tabungan, deposito, dan premi.</p></div>
+    <div class="card"><span class="tag">Fungsi 2</span><h3>Penyalur dana</h3><p>Menyalurkan dana kepada pihak yang membutuhkan dalam bentuk kredit atau pembiayaan.</p></div>
+    <div class="card"><span class="tag">Fungsi 3</span><h3>Pelancar transaksi</h3><p>Memudahkan pembayaran lewat transfer, kartu, dan dompet digital.</p></div>
+    <div class="card"><span class="tag">Fungsi 4</span><h3>Perlindungan & investasi</h3><p>Memberi rasa aman (asuransi) serta sarana menumbuhkan kekayaan (reksa dana, saham).</p></div>
+  </div>
+  <div class="card"><h3>Pembagian lembaga keuangan</h3>
+    <p>🏦 <b>Bank</b>: boleh menghimpun dana langsung dalam bentuk simpanan (giro, tabungan, deposito).<br>
+    🏢 <b>Non bank</b>: menghimpun dana dengan cara lain, misalnya premi, iuran, penerbitan surat berharga, atau jaminan gadai.</p></div>
+</section>
+
+<section id="s1">
+  <h2>Lembaga Keuangan Bank</h2>
+  <p>Ketuk tiap jenis bank untuk melihat penjelasannya.</p>
+  <div class="acc"><button>🏛️ Bank Sentral (Bank Indonesia) <span>▾</span></button><div>
+    <p>Otoritas moneter negara. Tidak melayani masyarakat umum secara langsung.</p>
+    <ul><li>Menetapkan dan menjaga kestabilan nilai rupiah</li><li>Mengatur dan menjaga kelancaran sistem pembayaran</li><li>Mengatur kebijakan moneter, termasuk suku bunga acuan</li><li>Sebagai pencetak dan pengedar uang rupiah</li></ul></div></div>
+  <div class="acc"><button>🏦 Bank Umum <span>▾</span></button><div>
+    <p>Bank yang memberikan jasa lengkap dan dapat melayani lalu lintas pembayaran.</p>
+    <ul><li>Contoh: BRI, BNI, Mandiri, BCA</li><li>Menghimpun dana: giro, tabungan, deposito</li><li>Menyalurkan dana: KPR, kredit kendaraan, kredit usaha</li><li>Jasa lain: transfer, kartu kredit/debit, safe deposit box</li></ul></div></div>
+  <div class="acc"><button>🌾 Bank Perekonomian Rakyat (BPR) <span>▾</span></button><div>
+    <p>Bank yang melayani masyarakat kecil di tingkat kecamatan atau pedesaan dan tidak melayani giro maupun lalu lintas pembayaran.</p>
+    <ul><li>Menerima tabungan dan deposito</li><li>Menyalurkan kredit untuk usaha mikro dan kecil</li><li>Tidak menerima simpanan giro</li></ul></div></div>
+  <div class="acc"><button>☪️ Bank Syariah <span>▾</span></button><div>
+    <p>Bank yang beroperasi berdasarkan prinsip syariah, tanpa bunga (riba).</p>
+    <ul><li>Contoh akad: <b>mudharabah</b> (bagi hasil), <b>musyarakah</b> (kerja sama modal), <b>murabahah</b> (jual beli dengan margin), <b>ijarah</b> (sewa)</li><li>Contoh: Bank Syariah Indonesia (BSI)</li></ul></div></div>
+  <div class="card"><h3>Produk bank</h3>
+    <p><b>Simpanan</b>: giro, tabungan, deposito. <b>Kredit</b>: modal kerja, investasi, konsumsi. <b>Jasa</b>: transfer, inkaso, kliring, mobile banking.</p></div>
+</section>
+
+<section id="s2">
+  <h2>Lembaga Keuangan Non Bank</h2>
+  <p>Ketuk untuk melihat detailnya.</p>
+  <div class="acc"><button>🛡️ Perusahaan Asuransi <span>▾</span></button><div>
+    <p>Mengalihkan risiko dari tertanggung kepada penanggung dengan imbalan premi.</p>
+    <ul><li>Asuransi jiwa, kesehatan, kendaraan, kebakaran</li><li>Contoh: Prudential, AXA Mandiri, Jasindo</li></ul></div></div>
+  <div class="acc"><button>💍 Pegadaian <span>▾</span></button><div>
+    <p>Memberikan pinjaman cepat dengan jaminan barang bergerak (emas, perhiasan, elektronik).</p>
+    <ul><li>Prosesnya cepat dan sederhana</li><li>Barang dikembalikan setelah pinjaman lunas</li><li>Contoh: PT Pegadaian (Persero)</li></ul></div></div>
+  <div class="acc"><button>👴 Dana Pensiun <span>▾</span></button><div>
+    <p>Mengelola iuran peserta dan pemberi kerja untuk membayar manfaat pensiun.</p>
+    <ul><li>Contoh: Taspen, DPLK</li><li>Tujuan: menjamin kesejahteraan hari tua</li></ul></div></div>
+  <div class="acc"><button>🤝 Koperasi Simpan Pinjam <span>▾</span></button><div>
+    <p>Lembaga milik anggota yang menghimpun simpanan anggota dan memberikan pinjaman kepada anggota.</p>
+    <ul><li>Simpanan pokok, wajib, dan sukarela</li><li>Keuntungan dibagi sebagai Sisa Hasil Usaha (SHU)</li></ul></div></div>
+  <div class="acc"><button>🚗 Perusahaan Pembiayaan (Leasing) <span>▾</span></button><div>
+    <p>Menyediakan pembiayaan pembelian barang modal atau konsumsi secara angsuran.</p>
+    <ul><li>Contoh: FIF, Adira Finance, BFI</li><li>Jenis: sewa guna usaha, anjak piutang, kartu kredit</li></ul></div></div>
+  <div class="acc"><button>📈 Pasar Modal & Perusahaan Sekuritas <span>▾</span></button><div>
+    <p>Mempertemukan pihak yang membutuhkan dana jangka panjang dengan investor.</p>
+    <ul><li>Instrumen: saham, obligasi, reksa dana</li><li>Dilaksanakan di Bursa Efek Indonesia (BEI)</li></ul></div></div>
+  <div class="acc"><button>💻 Fintech & Modal Ventura <span>▾</span></button><div>
+    <p>Fintech menyediakan layanan keuangan berbasis teknologi (dompet digital, pinjaman daring terdaftar OJK). Modal ventura menyertakan modal pada usaha rintisan.</p></div></div>
+</section>
+
+<section id="s3">
+  <h2>Perbandingan</h2>
+  <div class="tblw"><table>
+    <tr><th>Aspek</th><th>Bank</th><th>Non Bank</th></tr>
+    <tr><td>Penghimpunan dana</td><td>Simpanan: giro, tabungan, deposito</td><td>Premi, iuran, surat berharga, gadai</td></tr>
+    <tr><td>Penyaluran dana</td><td>Kredit dan pembiayaan</td><td>Pinjaman terbatas, investasi, klaim, manfaat</td></tr>
+    <tr><td>Lalu lintas pembayaran</td><td>Ya (bank umum)</td><td>Tidak</td></tr>
+    <tr><td>Pengawasan</td><td>OJK dan Bank Indonesia; simpanan dijamin LPS</td><td>OJK (dan kementerian terkait untuk koperasi)</td></tr>
+    <tr><td>Contoh</td><td>BRI, BCA, BPR, BSI</td><td>Asuransi, pegadaian, koperasi, leasing</td></tr>
+  </table></div>
+  <div class="card" style="margin-top:14px"><h3>Lembaga pengawas</h3>
+    <p><b>OJK</b> mengawasi sektor jasa keuangan, <b>BI</b> mengatur moneter dan sistem pembayaran, <b>LPS</b> menjamin simpanan nasabah bank.</p></div>
+</section>
+
+<section id="s4">
+  <h2>Kuis</h2>
+  <div class="bar"><i id="pg"></i></div>
+  <div id="qz"></div>
+</section>
+
+</div>
+<footer>Media Pembelajaran Ekonomi · Lembaga Keuangan</footer>
+</div>
+
+<script>
+const T=["Pengertian","Bank","Non Bank","Perbandingan","Kuis"];
+const nav=document.getElementById('nav');
+T.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>go(i);nav.appendChild(b)});
+function go(i){document.querySelectorAll('section').forEach((s,j)=>s.classList.toggle('on',i===j));
+ [...nav.children].forEach((b,j)=>b.classList.toggle('on',i===j));window.scrollTo(0,0);if(i===4)quiz()}
+function start(){document.getElementById('home').style.display='none';document.getElementById('app').style.display='block';go(0)}
+document.querySelectorAll('.acc>button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+const Q=[
+["Lembaga yang berwenang menjaga kestabilan nilai rupiah adalah...",["Bank Umum","Bank Indonesia","BPR","Koperasi"],1,"Bank Indonesia adalah bank sentral."],
+["Berikut yang termasuk simpanan bank adalah...",["Premi","Iuran pensiun","Deposito","Saham"],2,"Simpanan bank: giro, tabungan, deposito."],
+["BPR berbeda dari bank umum karena BPR...",["Menerima tabungan","Tidak menerima giro","Memberi kredit","Diawasi OJK"],1,"BPR tidak melayani giro dan lalu lintas pembayaran."],
+["Akad bagi hasil pada bank syariah disebut...",["Murabahah","Ijarah","Mudharabah","Gadai"],2,"Mudharabah adalah kerja sama bagi hasil."],
+["Lembaga yang mengalihkan risiko dengan imbalan premi adalah...",["Pegadaian","Asuransi","Leasing","BPR"],1,"Itulah fungsi asuransi."],
+["Pinjaman cepat dengan jaminan emas biasanya dilayani oleh...",["Pegadaian","Dana pensiun","Bursa efek","Bank Indonesia"],0,"Pegadaian memberi kredit dengan jaminan barang bergerak."],
+["Keuntungan koperasi yang dibagikan kepada anggota disebut...",["Bunga","Premi","SHU","Dividen"],2,"Sisa Hasil Usaha (SHU)."],
+["Lembaga yang menjamin simpanan nasabah bank adalah...",["OJK","LPS","BEI","Taspen"],1,"Lembaga Penjamin Simpanan (LPS)."]
+];
+let qi=0,sc=0;
+function quiz(){qi=0;sc=0;show()}
+function show(){
+ const el=document.getElementById('qz');document.getElementById('pg').style.width=(qi/Q.length*100)+'%';
+ if(qi>=Q.length){const p=Math.round(sc/Q.length*100);
+  el.innerHTML=`<div class="card"><div class="score">${sc}/${Q.length}</div><p style="text-align:center">${p>=75?'Hebat! Pemahamanmu sudah baik. 🎉':'Ayo pelajari materi lagi, kamu pasti bisa! 💪'}</p><p style="text-align:center"><button class="btn" onclick="quiz()">Ulangi kuis</button></p></div>`;return}
+ const [q,o,a,e]=Q[qi];
+ el.innerHTML=`<div class="card"><span class="tag">Soal ${qi+1} dari ${Q.length}</span><h3>${q}</h3>${o.map((x,i)=>`<button class="opt" data-i="${i}">${x}</button>`).join('')}<div class="fb" id="fb"></div></div>`;
+ el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+  const i=+b.dataset.i;el.querySelectorAll('.opt').forEach(x=>x.disabled=true);
+  el.querySelectorAll('.opt')[a].classList.add('ok');if(i!==a)b.classList.add('bad');else sc++;
+  document.getElementById('fb').innerHTML=(i===a?'✅ Benar! ':'❌ Kurang tepat. ')+e+'<p><button class="btn" id="nx">Lanjut</button></p>';
+  document.getElementById('nx').onclick=()=>{qi++;show()}})
+}
+</script>
+</body>
+</html>
